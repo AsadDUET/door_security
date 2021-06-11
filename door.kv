@@ -1,0 +1,224 @@
+#:kivy 1.11.0
+
+<HomeScreen>:
+    MDGridLayout:
+        cols: 1
+        spacing: dp(10)
+        MDToolbar:
+            id: toolbar
+            title: ''
+            height: dp(30)
+            # md_bg_color: app.theme_cls.primary_color
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.close_app()]]
+            pos_hint: {"top": 1}
+        MDLabel:
+            id: welcome
+            text: 'Welcome to\nDoor Security'
+            halign: "center"
+            font_style: 'H3'
+        MDGridLayout:
+            cols: 4
+            size_hint_y: 0.3
+            padding: (10,10)
+            spacing: dp(10)
+            MDRaisedButton:
+                text: 'Close'
+                font_size: "36sp"
+                size_hint: 1, 1
+                on_release: root.close_app()
+            MDRaisedButton:
+                text: 'Enrole'
+                font_size: "36sp"
+                size_hint: 1, 1
+                # on_press: root.go_enrole_screen()
+                on_release: root.go_enrole_screen()
+                # on_state:
+                #     print("my current state is {}".format(self.state))
+            MDRaisedButton:
+                text: 'Scan'
+                font_size: "36sp"
+                size_hint: 1, 1
+                on_release: root.go_scan_screen()
+            
+<EnroleScreen>:
+    MDGridLayout:
+        cols: 1
+        spacing: dp(10)
+        # padding: (10,10)
+        MDToolbar:
+            id: toolbar
+            title: ''
+            height: dp(30)
+            # md_bg_color: app.theme_cls.primary_color
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.back()]]
+            pos_hint: {"top": 1}
+        MDGridLayout:
+            cols: 1
+            spacing: dp(10)
+            padding: (10,10)
+            MDLabel:
+                text: "Add User"
+                font_style: 'H3'
+                size_hint_y:.3
+                halign: "center"
+            MDLabel:
+                id: instruction
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                text: "instruction"
+                font_style: 'H4'
+                size_hint_y:.2
+                halign: "center"
+            # MDLabel:
+            #     text: "Student ID"
+            #     halign: "left"
+            #     size_hint_y:.1
+            MDGridLayout:
+                cols: 2
+                spacing: dp(10)
+                padding: (10,10)
+                MDGridLayout:
+                    cols: 1
+                    spacing: dp(10)
+                    padding: (10,10)
+                    MDTextField:
+                        id: uName
+                        hint_text: "Name"
+                        font_size: "36sp"
+                    MDTextField:
+                        id: uID
+                        hint_text: "ID"
+                        font_size: "36sp"
+                    
+                MDGridLayout:
+                    cols: 1
+                    spacing: dp(10)
+                    padding: (10,10)
+                    Image:
+                        id: preview
+                        source: ''
+                        allow_stretch: True
+            MDRaisedButton:
+                text: 'Clear database'
+                font_size: "36sp"
+                size_hint_y: .3
+                size_hint_x: 1
+                # on_press: root.go_enrole_screen()
+                on_release: root.clear()
+            MDGridLayout:
+                cols: 2
+                spacing: dp(10)
+                padding: (10,10)
+                size_hint_y:.3
+                MDRaisedButton:
+                    text: 'Back'
+                    font_size: "36sp"
+                    size_hint: 1, 1
+                    # on_press: root.go_enrole_screen()
+                    on_release: root.back()
+                # MDRaisedButton:
+                #     text: 'Fid +'
+                #     font_size: "36sp"
+                #     size_hint: 1, 1
+                #     on_release: root.fidPlus()
+                # MDRaisedButton:
+                #     text: 'Fid -'
+                #     font_size: "36sp"
+                #     size_hint: 1, 1
+                #     on_release: root.fidMinus()
+                MDRaisedButton:
+                    text: 'Submit'
+                    font_size: "36sp"
+                    size_hint: 1, 1
+                    # on_press: root.go_enrole_screen()
+                    on_release: root.submit()
+
+<ScanScreen>:
+    MDGridLayout:
+        cols: 1
+        spacing: dp(10)
+        # padding: (10,10)
+        MDToolbar:
+            id: toolbar
+            title: ''
+            height: dp(30)
+            # md_bg_color: app.theme_cls.primary_color
+            elevation: 10
+            left_action_items: [["arrow-left", lambda x: root.back()]]
+            pos_hint: {"top": 1}
+        MDGridLayout:
+            cols: 1
+            spacing: dp(10)
+            padding: (10,10)
+            MDLabel:
+                text: "Scan"
+                font_style: 'H3'
+                size_hint_y:.3
+                halign: "center"
+            MDLabel:
+                id: instruction
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                text: "instruction"
+                font_style: 'H4'
+                size_hint_y:.2
+                halign: "center"
+            # MDLabel:
+            #     text: "Student ID"
+            #     halign: "left"
+            #     size_hint_y:.1
+            MDGridLayout:
+                cols: 2
+                spacing: dp(10)
+                padding: (10,10)
+                MDGridLayout:
+                    cols: 1
+                    spacing: dp(10)
+                    padding: (10,10)
+                    MDTextField:
+                        id: uName
+                        hint_text: "Name"
+                        font_size: "36sp"
+                    MDTextField:
+                        id: uID
+                        hint_text: "ID"
+                        font_size: "36sp"
+                    
+                MDGridLayout:
+                    cols: 1
+                    spacing: dp(10)
+                    padding: (10,10)
+                    Image:
+                        id: preview
+                        source: ''
+                        allow_stretch: True
+            
+            MDGridLayout:
+                cols: 2
+                spacing: dp(10)
+                padding: (10,10)
+                size_hint_y:.3
+                MDRaisedButton:
+                    text: 'Back'
+                    font_size: "36sp"
+                    size_hint: 1, 1
+                    # on_press: root.go_enrole_screen()
+                    on_release: root.back()
+                # MDRaisedButton:
+                #     text: 'Fid +'
+                #     font_size: "36sp"
+                #     size_hint: 1, 1
+                #     on_release: root.fidPlus()
+                # MDRaisedButton:
+                #     text: 'Fid -'
+                #     font_size: "36sp"
+                #     size_hint: 1, 1
+                #     on_release: root.fidMinus()
+                MDRaisedButton:
+                    text: 'Scan'
+                    font_size: "36sp"
+                    size_hint: 1, 1
+                    # on_press: root.go_enrole_screen()
+                    on_release: root.submit()
